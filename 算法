@@ -1,1 +1,17 @@
 
+# 二分查找
+
+ static int bs1(int[] arr,int key){
+        int L = 0,R = arr.length - 1; //在[L,R]范围内寻找key
+        int mid;
+        while( L <= R){
+            mid = L + (R - L) / 2;
+            if(arr[mid] == key)
+                return mid;
+            if(arr[mid] > key)
+                R = mid - 1;// key 在 [L,mid-1]内
+            else
+                L = mid + 1;
+        }
+        return -1;
+    }
